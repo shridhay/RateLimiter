@@ -33,13 +33,13 @@ class RateLimiter:
         return len(self.requests[uuid]) if uuid in self.requests else -1
 
     def getNumberOfRequests():
-        return {uuids : len(self.requests[uuid])}
+        return {uuids : len(self.requests[uuid]) for uuid in self.requests}
 
     def printNumberOfRequestsUUID(uuid):
         print(len(self.requests[uuid]) if uuid in self.requests else -1)
         
     def printNumberOfRequests():
-        print({uuids : len(self.requests[uuid])})
+        print({uuids : len(self.requests[uuid]) for uuid in self.requests})
     
     def printUUIDs(self):
         print(list(self.requests.keys()))
