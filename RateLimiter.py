@@ -11,7 +11,7 @@ class RateLimiter:
         self.appendRejects = reject
         self.requests = {}
 
-    # Important to note that requests will always arrive in a non-decreasing order due to the arrow of time. Stale requests will be removed via q.popleft(). New requests will be appended via q.append(elem).
+    # Important to note that requests will always arrive in a non-decreasing order due to the arrow of time. Stale requests will be evicted via q.popleft(). New requests will be appended via q.append(elem).
 
     def allowRequest(self, uuid, now):        
         if uuid not in self.requests:
