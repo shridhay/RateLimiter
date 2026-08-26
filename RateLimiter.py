@@ -29,12 +29,18 @@ class RateLimiter:
                 q.append(now)
                 return True
 
-    def getNumberOfRequests(uuid):
-        if uuid in self.requests:
-            return len(self.requests[uuid])
-        else:
-            return -1
+    def getNumberOfRequestsUUID(uuid):
+        return len(self.requests[uuid]) if uuid in self.requests else -1
+
+    def getNumberOfRequests():
+        return {uuids : len(self.requests[uuid])}
+
+    def printNumberOfRequestsUUID(uuid):
+        print(len(self.requests[uuid]) if uuid in self.requests else -1)
         
+    def printNumberOfRequests():
+        print({uuids : len(self.requests[uuid])})
+    
     def printUUIDs(self):
         print(list(self.requests.keys()))
 
