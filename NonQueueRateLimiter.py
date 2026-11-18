@@ -2,6 +2,8 @@ from datetime import datetime
 
 class RateLimiter:
 
+    # If reject is set to true, rejected requests will still be recorded in requests, if set to false rejected requests will not be recorded.
+
     def __init__(self, limit, reject=False):
         assert limit > 0
         self.limit = limit
